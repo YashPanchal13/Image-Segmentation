@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     """ Dataset """
     # dataset_path = "/media/nikhil/New Volume/ML_DATASET/IMAGE-MATTING/P3M-10k"
-    dataset_path = "F:/PAR Solutions/U-net Masking/P3M-10k/P3M-10k"
+    dataset_path = "/P3M-10k"
     (train_x, train_y), (valid_x, valid_y) = load_dataset(dataset_path)
 
     print(f"Train: {len(train_x)} - {len(train_y)}")
