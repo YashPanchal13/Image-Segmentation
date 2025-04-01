@@ -1,3 +1,6 @@
+!git clone https://github.com/YashPanchal13/Image-Segmentation
+%cd Image-Segmentation
+
 To use the P3M-10K dataset from Kaggle in Google Colab, follow these steps:
 
 Step 1: Get Kaggle API Key
