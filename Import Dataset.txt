@@ -1,0 +1,71 @@
+To use the P3M-10K dataset from Kaggle in Google Colab, follow these steps:
+
+Step 1: Get Kaggle API Key
+Go to Kaggle and log in.
+
+Click on your profile picture (top-right) → Account.
+
+Scroll down to the API section and click Create New API Token.
+
+A file named kaggle.json will be downloaded.
+
+Step 2: Upload kaggle.json to Colab
+Open a new Google Colab notebook.
+
+Run the following code to upload your kaggle.json file:
+
+
+from google.colab import files
+files.upload()  # Upload the kaggle.json file
+Step 3: Set Up Kaggle API in Colab
+Run the following commands to move kaggle.json to the correct directory and set permissions:
+
+
+import os
+!mkdir -p ~/.kaggle
+!mv kaggle.json ~/.kaggle/
+!chmod 600 ~/.kaggle/kaggle.json
+Step 4: Download the P3M-10K Dataset
+Use the following command to download the dataset:
+
+
+!kaggle datasets download -d rahulbhalley/p3m-10k
+This will download a .zip file containing the dataset.
+
+Step 5: Extract the Dataset
+Extract the dataset using:
+
+
+import zipfile
+
+dataset_zip = "p3m-10k.zip"  # Change filename if needed
+with zipfile.ZipFile(dataset_zip, "r") as zip_ref:
+    zip_ref.extractall("P3M-10K")  # Extract to a folder
+Now, all dataset files are stored in the P3M-10K/ directory.
+
+Step 6: Verify Dataset Files
+To check the extracted files:
+
+import os
+os.listdir("P3M-10K")
+Step 7: Load Images or CSV Files
+If the dataset contains images, you can view them using:
+
+import cv2
+import matplotlib.pyplot as plt
+
+img_path = "P3M-10K/sample_image.jpg"  # Change to an actual image path
+img = cv2.imread(img_path)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+plt.imshow(img)
+plt.axis("off")
+plt.show()
+If the dataset has CSV files, load them using:
+
+import pandas as pd
+
+csv_path = "P3M-10K/sample.csv"  # Change to actual CSV filename
+df = pd.read_csv(csv_path)
+df.head()
+This setup allows you to easily use the P3M-10K dataset in Google Colab. Let me know if you need further assistance! 🚀
